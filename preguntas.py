@@ -74,7 +74,7 @@ pass
 def pregunta_10():
  aux1=list()
  tbl3=pd.DataFrame()
- tblout=pd.DataFrame(columns=['_c0','_c1'])
+ tblout=pd.DataFrame(columns=['_c0','_c2'])
  tbl0 = pd.read_csv("tbl0.tsv", sep="\t")
  a= tbl0['_c1'].unique()
  count=0
@@ -84,7 +84,7 @@ def pregunta_10():
    aux1.sort()
    straux=':'.join([str(l) for l in aux1])
    tblout.at[count,'_c0']=letra
-   tblout.at[count,'_c1']=straux
+   tblout.at[count,'_c2']=straux
    count=count+1
  
  return tblout
