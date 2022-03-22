@@ -87,7 +87,7 @@ def pregunta_10():
    tblout.at[count,'_c2']=straux
    count=count+1
  
- return tblout
+ return tblout[['_c1','_c2']]
 
 pass
 
