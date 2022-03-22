@@ -74,20 +74,22 @@ pass
 def pregunta_10():
  aux1=list()
  tbl3=pd.DataFrame()
- tblout=pd.DataFrame(columns=['_c1','_c2'])
+ #tblout=pd.DataFrame(columns=['_c1','_c2'])
  tbl0 = pd.read_csv("tbl0.tsv", sep="\t")
  a= tbl0['_c1'].unique()
  count=0
+ straux2=[]
  for letra in sorted(a):
    tbl3=tbl0.groupby('_c1').get_group(letra)
    aux1=tbl3['_c2'].to_list()
    aux1.sort()
    straux=':'.join([str(l) for l in aux1])
-   tblout.at[count,'_c1']=letra
-   tblout.at[count,'_c2']=straux
+   #tblout.at[count,'_c1']=letra
+   #tblout.at[count,'_c2']=straux
+   straux2.append(straux)
    count=count+1
- 
- return tblout[['_c1','_c2']]
+ tblout=pd.DataFrame({'_c2':straux2},index=pd.Series(sorted(a),name='_c1'))
+ return tblout
 
 pass
 
